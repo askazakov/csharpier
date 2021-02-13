@@ -1,4 +1,4 @@
-﻿#error Error message
+#error Error message
 #warning Warning message
 #pragma warning disable 414, 3021
 #pragma warning restore 3021
@@ -8,6 +8,7 @@
 #else
 #endif
 #undef foo
+
 extern alias Foo;
 
 using System;
@@ -17,19 +18,18 @@ using System.Linq.Expressions;
 using System.Text;
 using M = System.Math;
 
-
 #if DEBUG || TRACE
 using System.Diagnostics;
 #elif SILVERLIGHT && WINDOWS_PHONE || DEBUG || foo == true || foo != false
 using System.Diagnostics;
 #else
 using System.Diagnostics;
-
 #endif
+
 #region Region
+
     #region more
 using ConsoleApplication2.Test;
-
     #endregion
 using X = int1;
 using Y = ABC.X<int>;
@@ -39,6 +39,7 @@ using static System.DayOfWeek;
 using static System.Linq.Enumerable;
 
 #endregion
+
 [assembly: System.Copyright(@"(C)""
 
 2009")]
@@ -68,7 +69,7 @@ namespace My
 
         public A(int foo)
         {
-            L:
+        L:
             {
                 int i = sizeof(int);
                 ++i;
@@ -76,7 +77,6 @@ namespace My
                 var s2 = $@"x {1, -2:d}";
             }
 
-            
 #if DEBUG
       Console.WriteLine(export.iefSupplied.command);
 #endif
@@ -220,8 +220,7 @@ namespace My
             {
                 for (;;)
                 {
-                    for (int i = 0, j = 0; i < length; i++,
-                    j++) { }
+                    for (int i = 0, j = 0; i < length; i++, j++) { }
                     if (true)
                     {
                         continue;
@@ -409,18 +408,19 @@ namespace My
     }
     [type: Flags]
     public enum E
-    {A,
-    B = A,
-    C = 2 + A,
-    
+    {
+        A,
+        B = A,
+        C = 2 + A,
 #if DEBUG
         D,
         }
 #else
-    E
-    }
-    
+        E,
+        }
 #endif
+
+
     public delegate void Delegate(object P);
     namespace Test
     {
@@ -436,7 +436,7 @@ namespace My
                 int אתר = 0;
                 while (++counter++ < --exponent--)
                 {
-                    result = result * number + +number++++ + number;
+                    result = result * number + +number+++++number;
                     yield return result;
                 }
             }
@@ -611,32 +611,28 @@ namespace Comments.XmlComments.UndocumentedKeywords
     /// <seealso cref=" "/>
     /// <value></value>
     /// <typeparam name="T"></typeparam>
-    class /*///*/
-    C<T>
+    class /*///*/C<T>
     {
         void M<U>(T t, U u)
         {
             // comment
-            //comment
+            /* *** / */
+            /* //
+             */
+            /*s*///comment
             // /***/
-            int /*s*/
-             intValue = 0;
-            intValue = intValue /*s*/
-             + 1;
-            string strValue = /*s*/
-            "hello";
-            MyClass c = new MyClass();
-            string verbatimStr = /*s*/
-            @"\\\\";
+            /*s*/int /*s*/intValue = 0;
+            intValue = intValue /*s*/+ 1;
+            string strValue = /*s*/"hello";
+            /*s*/MyClass c = new MyClass();
+            string verbatimStr = /*s*/@"\\\\";
         }
     }
 
     //General Test F. Type a very long class name, verify colorization happens correctly only upto the correct size (118324)
-    class TestClassXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX /*Scen8*/
-     { }
+    class TestClassXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/*Scen8*/{ }
 
-    class TestClassXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX22 /*Scen9*/
-     { }
+    class TestClassXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX22/*Scen9*/{ }
 
     class yield
     {
@@ -665,70 +661,41 @@ namespace Comments.XmlComments.UndocumentedKeywords
 
         public partial void method()
         {
-            int?[] a = new int?[5]; /*[] bug*/
- // YES []
+            int?[] a = new int?[5]; /*[] bug*/ // YES []
             int[] var = { 1, 2, 3, 4, 5 }; /*,;*/
-
             int i = a[i]; /*[]*/
-
             Foo<T> f = new Foo<int>(); /*<> ()*/
-
             f.method(); /*().*/
-
             i = i + i - i * i / i % i & i | i ^ i; /*+ - * / % & | ^*/
-
             bool b = true & false | true ^ false; /*& | ^*/
-
             b = !b; /*!*/
-
             i = ~i; /*~i*/
-
             b = i < i && i > i; /*< && >*/
-
-            int? ii = 5; /*? bug*/
- // NO ?
-            int f = true ? 1 : 0; /*? :*/
- // YES :
+            int? ii = 5; /*? bug*/ // NO ?
+            int f = true ? 1 : 0; /*? :*/ // YES :
             i++; /*++*/
-
             i--; /*--*/
-
             b = true && false || true; /*&& ||*/
-
             i << 5; /*<<*/
-
             i >> 5; /*>>*/
-
             b = i == i && i != i && i <= i && i >= i; /*= == && != <= >=*/
-
             i += 5.0; /*+=*/
-
             i -= i; /*-=*/
-
-            i *= i;
+            i *= i; /**=*/
             i /= i; /*/=*/
-
             i %= i; /*%=*/
-
             i &= i; /*&=*/
-
             i |= i; /*|=*/
-
             i ^= i; /*^=*/
-
             i <<= i; /*<<=*/
-
             i >>= i; /*>>=*/
-
             object s = x => x + 1; /*=>*/
-
             double d = .3;
             Point point;
             unsafe
             {
-                Point* p = &point;
+                Point* p = &point; /** &*/
                 p->x = 10; /*->*/
-
             }
             IO::BinaryReader br = null;
             x[i: 1] = 3;
@@ -831,11 +798,11 @@ namespace Comments.XmlComments.UndocumentedKeywords
         }
     }
 }
-
 #line 6
 #line 2 "test.cs"
 #line default
 #line hidden
+
 class CSharp70
 {
     void PatternMatching(string arg, int b)
@@ -848,11 +815,11 @@ class CSharp70
                 break;
         }
 
-        (A<B, C> D, E<F, G> H) = e;
+        (A<B,C> D, E<F,G> H) = e;
 
         if (x?.y?.z is Type value2)
         {
-        // code using value
+            // code using value
         }
 
         if (expr is Type v)
@@ -991,14 +958,16 @@ class CSharp72
 
     public void LeadingSeparator()
     {
-        var res = 0 + 123 // permitted in C# 1.0 and later
-         + 1_2_3 // permitted in C# 7.0 and later
-         + 0x1_2_3 // permitted in C# 7.0 and later
-         + 0b101 // binary literals added in C# 7.0
-         + 0b1_0_1 // permitted in C# 7.0 and later
+        var res = 0
+        + 123      // permitted in C# 1.0 and later
+        + 1_2_3    // permitted in C# 7.0 and later
+        + 0x1_2_3  // permitted in C# 7.0 and later
+        + 0b101    // binary literals added in C# 7.0
+        + 0b1_0_1  // permitted in C# 7.0 and later
+
         // in C# 7.2, _ is permitted after the `0x` or `0b`
-        + 0x_1_2 // permitted in C# 7.2 and later
-         + 0b_1_0_1 // permitted in C# 7.2 and later
+        + 0x_1_2   // permitted in C# 7.2 and later
+        + 0b_1_0_1 // permitted in C# 7.2 and later
         ;
     }
 }
@@ -1028,8 +997,8 @@ class CSharp73
     {
         fixed (byte* ptr = byteArray)
         {
-        // ptr is a native pointer to the first element of the array
-        // byteArray is protected from being moved/collected by the GC for the duration of this block
+           // ptr is a native pointer to the first element of the array
+           // byteArray is protected from being moved/collected by the GC for the duration of this block
         }
     }
 
@@ -1160,3 +1129,4 @@ namespace CSharp80
         }
     }
 }
+
